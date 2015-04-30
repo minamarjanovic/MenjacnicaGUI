@@ -208,6 +208,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnDodajKurs() {
 		if (btnDodajKurs == null) {
 			btnDodajKurs = new JButton("Dodaj kurs");
+			btnDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					prikaziDodajKursGUI();
+				}
+			});
 		}
 		return btnDodajKurs;
 	}
@@ -252,6 +257,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
 			mntmDodajKurs = new JMenuItem("Dodaj kurs");
+			mntmDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					prikaziDodajKursGUI();
+				}
+			});
 		}
 		return mntmDodajKurs;
 	}
@@ -326,6 +336,16 @@ public class MenjacnicaGUI extends JFrame {
 	private void pokaziOAutoru(){
 		JOptionPane.showMessageDialog(contentPane,
 				"Autor: Mina Marjanovic, Verzija 1.0", "O programu Menjacnica ",
-				JOptionPane.INFORMATION_MESSAGE); }
+				JOptionPane.INFORMATION_MESSAGE); 
+		}
+	
+	private void prikaziDodajKursGUI() {
+		DodajKursGUI prozor = new DodajKursGUI();
+		prozor.setLocationRelativeTo(contentPane);
+		prozor.setVisible(true);
+	}
+	
+	
+	
 	
 }
