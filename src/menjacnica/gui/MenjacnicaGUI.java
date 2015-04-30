@@ -56,7 +56,8 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem mntmObrisiKurs;
 	private JMenuItem mntmIzvrsiZamenu;
 	private JScrollPane scrollPane_1;
-	private JTextArea textArea;
+	private JTextArea textAreaIspis;
+	
 
 	/**
 	 * Launch the application.
@@ -219,6 +220,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnObrisiKurs() {
 		if (btnObrisiKurs == null) {
 			btnObrisiKurs = new JButton("Obrisi kurs");
+			btnObrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					prikaziObrisiKursGUI();
+				}
+			});
 		}
 		return btnObrisiKurs;
 	}
@@ -282,16 +288,16 @@ public class MenjacnicaGUI extends JFrame {
 			scrollPane_1 = new JScrollPane();
 			scrollPane_1.setBorder(new TitledBorder(null, "STATUS", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			scrollPane_1.setPreferredSize(new Dimension(17, 40));
-			scrollPane_1.setViewportView(getTextArea());
+			scrollPane_1.setViewportView(getTextAreaIspis());
 		}
 		return scrollPane_1;
 	}
 	
-	private JTextArea getTextArea() {
-		if (textArea == null) {
-			textArea = new JTextArea();
+	private JTextArea getTextAreaIspis() {
+		if (textAreaIspis == null) {
+			textAreaIspis = new JTextArea();
 		}
-		return textArea;
+		return textAreaIspis;
 	}
 	
 	private void ucitajIzFajla() {
@@ -300,8 +306,8 @@ public class MenjacnicaGUI extends JFrame {
 			int returnVal = fc.showOpenDialog(contentPane);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
-				textArea.append("Ucitan fajl: " + file.getAbsolutePath());
-				textArea.append("\n");
+				textAreaIspis.append("Ucitan fajl: " + file.getAbsolutePath());
+				textAreaIspis.append("\n");
 			}	
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(contentPane, e.getMessage(),
@@ -315,8 +321,8 @@ public class MenjacnicaGUI extends JFrame {
 			int returnVal = fc.showSaveDialog(contentPane);
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
-				textArea.append("Sacuvan fajl: " + file.getAbsolutePath());
-				textArea.append("\n");
+				textAreaIspis.append("Sacuvan fajl: " + file.getAbsolutePath());
+				textAreaIspis.append("\n");
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(contentPane, e.getMessage(),
@@ -344,6 +350,23 @@ public class MenjacnicaGUI extends JFrame {
 		prozor.setLocationRelativeTo(contentPane);
 		prozor.setVisible(true);
 	}
+	
+	
+	public void ubaciTekst(String t){
+		if (textAreaIspis.getText().isEmpty())
+			textAreaIspis.setText(t);
+		else
+			textAreaIspis.setText(textAreaIspis.getText()+"\n"+t);
+		
+	}
+	private void prikaziObrisiKursGUI() {
+		ObrisiKursGUI prozor = new ObrisiKursGUI();
+		prozor.setLocationRelativeTo(contentPane);
+		prozor.setVisible(true);
+	}
+	
+	
+
 	
 	
 	
