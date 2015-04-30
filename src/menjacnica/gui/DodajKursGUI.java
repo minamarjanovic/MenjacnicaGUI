@@ -13,6 +13,7 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class DodajKursGUI extends JFrame {
 
@@ -31,7 +32,7 @@ public class DodajKursGUI extends JFrame {
 	private JTextField textFieldSkraceniNaziv;
 	private JButton btnDodaj;
 	private JButton btnOdustani;
-	private MenjacnicaGUI prozor;
+	
 
 	/**
 	 * Launch the application.
@@ -53,6 +54,7 @@ public class DodajKursGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public DodajKursGUI() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DodajKursGUI.class.getResource("/com/sun/java/swing/plaf/windows/icons/Computer.gif")));
 		setTitle("Dodaj kurs");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -178,7 +180,7 @@ public class DodajKursGUI extends JFrame {
 							+textFieldKupovniKurs.getText()+ " srednji kurs: "+textFieldSrednjiKurs.getText()+
 							" skraceni naziv :"+textFieldSkraceniNaziv.getText();
 							
-					prozor.ubaciTekst(podaci);
+					MenjacnicaGUI.ubaciTekst(podaci);
 					dispose();
 					
 					
