@@ -62,7 +62,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public IzvrsiZamenuGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(IzvrsiZamenuGUI.class.getResource("/javax/swing/plaf/metal/icons/Inform.gif")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IzvrsiZamenuGUI.class.getResource("/icons/exchange.png")));
 		setTitle("Izvrsi zamenu");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -181,20 +181,18 @@ public class IzvrsiZamenuGUI extends JFrame {
 			btnIzvrsiZamenu = new JButton("Izvrsi zamenu");
 			btnIzvrsiZamenu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					try {
+				
 						String selectedBtnTxt = null;
 						if(getRdbtnKupovina().isSelected())
 							selectedBtnTxt = rdbtnKupovina.getText();
 						else 
 							selectedBtnTxt = rdbtnProdaja.getText();
 						
-						String podaci = "Valuta: "+getComboBoxValuta().getSelectedItem()+" iznos: "+textFieldIznos.getText()+" vrsta transakcije: "+selectedBtnTxt;
+						String podaci = "Valuta: "+getComboBoxValuta().getSelectedItem()+" , iznos: "+textFieldIznos.getText()+" , vrsta transakcije: "+selectedBtnTxt;
 								MenjacnicaGUI.ubaciTekst(podaci);
 								
 								dispose();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+					
 				}
 			});
 			btnIzvrsiZamenu.setBounds(20, 227, 134, 23);

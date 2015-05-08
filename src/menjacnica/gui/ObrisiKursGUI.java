@@ -54,11 +54,11 @@ public class ObrisiKursGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public ObrisiKursGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ObrisiKursGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ObrisiKursGUI.class.getResource("/icons/exchange.png")));
 		setTitle("Obrisi kurs");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 319, 312);
+		setBounds(100, 100, 307, 312);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -162,7 +162,7 @@ public class ObrisiKursGUI extends JFrame {
 	private JLabel getLblSkraceniNaziv() {
 		if (lblSkraceniNaziv == null) {
 			lblSkraceniNaziv = new JLabel("SkraceniNaziv");
-			lblSkraceniNaziv.setBounds(182, 150, 76, 14);
+			lblSkraceniNaziv.setBounds(182, 150, 90, 14);
 		}
 		return lblSkraceniNaziv;
 	}
@@ -180,11 +180,24 @@ public class ObrisiKursGUI extends JFrame {
 			chckbxZaistaObrisiKurs = new JCheckBox("Zaista obrisi kurs");
 			chckbxZaistaObrisiKurs.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-						if (chckbxZaistaObrisiKurs.isSelected())
+						if (chckbxZaistaObrisiKurs.isSelected()) {
 							btnObrisi.setEnabled(true);
-						else
+							textFieldSifra.setEditable(true);
+							textFieldNaziv.setEditable(true);
+							textFieldProdajni.setEditable(true);
+							textFieldKupovni.setEditable(true);
+							textFieldSrednji.setEditable(true);
+							textFieldSkraceniNaziv.setEditable(true);
+						}
+						else {
 							btnObrisi.setEnabled(false);
-					
+							textFieldSifra.setEditable(false);
+							textFieldNaziv.setEditable(false);
+							textFieldProdajni.setEditable(false);
+							textFieldKupovni.setEditable(false);
+							textFieldSrednji.setEditable(false);
+							textFieldSkraceniNaziv.setEditable(false);
+						}
 				}
 			});
 			chckbxZaistaObrisiKurs.setBounds(10, 209, 149, 23);

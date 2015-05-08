@@ -1,9 +1,6 @@
 package menjacnica.gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.TextArea;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -54,7 +51,7 @@ public class DodajKursGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public DodajKursGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(DodajKursGUI.class.getResource("/com/sun/java/swing/plaf/windows/icons/Computer.gif")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DodajKursGUI.class.getResource("/icons/exchange.png")));
 		setTitle("Dodaj kurs");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
